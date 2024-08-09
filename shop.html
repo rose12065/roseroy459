@@ -11,7 +11,7 @@
             box-sizing: border-box;
         }
         body {
-            font-family: Arial, sans-serif;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
             line-height: 1.6;
         }
         header {
@@ -43,45 +43,41 @@
             padding: 10px;
             display: block;
         }
+        
 
         .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 0;
-            min-width: 160px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            z-index: 1;
-        }
+    display: none; /* Hide the dropdown menu by default */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 0;
+    min-width: 160px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    z-index: 1;
+    flex-direction: column;
+    align-items: flex-start;
+}
 
-        .dropdown:hover .dropdown-menu {
-            display: block;
-        }
+.dropdown-menu li {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: left;
+}
 
-        .dropdown-menu li {
-            list-style: none;
-            margin: 0;
-            border-bottom: 1px solid #ddd;
-        }
+.dropdown-menu li a {
+    color: #333;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+}
 
-        .dropdown-menu li:last-child {
-            border-bottom: none;
-        }
-
-        .dropdown-menu li a {
-            color: #333;
-            text-decoration: none;
-            padding: 10px;
-            display: block;
-        }
-
-        .dropdown-menu li a:hover {
-            background-color: #f4f4f4;
-        }
+.dropdown-menu li a:hover {
+    background-color: #f4f4f4;
+}
         main {
             padding: 20px;
         }
@@ -361,26 +357,26 @@
     <main>
         <section id="products" class="product-list">
             <div class="product">
-                <img src="images/ad-image-1.png" alt="Product 1" loading="lazy">
-                <h3>Product 1</h3>
+                <img src="images/thumb-biscuits.png" alt="Product 1" loading="lazy">
+                <h3>Biscuits</h3>
                 <p>Rs. 100.00</p>
                 <button onclick="addToCart('Product 1')">Add to Cart</button>
             </div>
             <div class="product">
                 <img src="images/ad-image-4.png" alt="Product 2"loading="lazy">
-                <h3>Product 2</h3>
+                <h3>Cup Cake</h3>
                 <p>Rs. 150.00</p>
                 <button onclick="addToCart('Product 2')">Add to Cart</button>
             </div>
             <div class="product">
-                <img src="images/ad-image-2.png" alt="Product 3"loading="lazy">
-                <h3>Product 3</h3>
+                <img src="images/thumb-avocado.png" alt="Product 3"loading="lazy">
+                <h3>Avocado</h3>
                 <p>Rs. 200.00</p>
                 <button onclick="addToCart('Product 3')">Add to Cart</button>
             </div>
             <div class="product">
                 <img src="images/thumb-honey.jpg" alt="Product 4"loading="lazy">
-                <h3>Product 4</h3>
+                <h3>Honey</h3>
                 <p>Rs. 250.00</p>
                 <button onclick="addToCart('Product 4')">Add to Cart</button>
             </div>
@@ -545,6 +541,22 @@
                     modal.style.display = "none";
                 }
             }
+            document.addEventListener('DOMContentLoaded', function() {
+        const categoryLink = document.querySelector('.dropdown > a');
+        const dropdownMenu = document.querySelector('.dropdown-menu');
+
+        categoryLink.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent the default link behavior
+            dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // Optional: Close the dropdown if clicked outside
+        document.addEventListener('click', function(event) {
+            if (!categoryLink.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                dropdownMenu.style.display = 'none';
+            }
+        });
+    });
         </script>
     </body>    
     </body>
