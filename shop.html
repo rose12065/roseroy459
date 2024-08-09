@@ -46,38 +46,38 @@
         
 
         .dropdown-menu {
-    display: none; 
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 0;
-    min-width: 160px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    z-index: 1;
-    flex-direction: column;
-    align-items: flex-start;
-}
+            display: none; 
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 0;
+            min-width: 160px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            z-index: 1;
+            flex-direction: column;
+            align-items: flex-start;
+        }
 
-.dropdown-menu li {
-    width: 100%;
-    padding: 10px;
-    box-sizing: border-box;
-    text-align: left;
-}
+        .dropdown-menu li {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            text-align: left;
+        }
 
-.dropdown-menu li a {
-    color: #333;
-    text-decoration: none;
-    padding: 10px;
-    display: block;
-}
+        .dropdown-menu li a {
+            color: #333;
+            text-decoration: none;
+            padding: 10px;
+            display: block;
+        }
 
-.dropdown-menu li a:hover {
-    background-color: #f4f4f4;
-}
+        .dropdown-menu li a:hover {
+            background-color: #f4f4f4;
+        }
         main {
             padding: 20px;
         }
@@ -332,27 +332,77 @@
         .close-btn:hover {
             background-color: #009d6f;
         }
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #fff;
+            margin-right: 20px;
+        }
+
+        /* Navbar styles for mobile */
+        .nav-menu {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-menu ul {
+            display: flex;
+            align-items: center;
+        }
+
+        /* Hide dropdown menu by default on mobile */
+        .dropdown-menu {
+            display: none;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .nav-menu ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                background: #00d099;
+                width: 100%;
+                padding: 10px;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                z-index: 1;
+            }
+
+            .nav-menu.active ul {
+                display: flex;
+            }
+
+            .hamburger {
+                display: block;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
         <h1>GreenMart</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li class="dropdown">
-                    <a href="#">Categories</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Grocery</a></li>
-                        <li><a href="#">Vegetables</a></li>
-                        <li><a href="#">Fruits</a></li>
-                    </ul>
-                </li>
-                <li><a href="#products">Products</a></li>
-                <li><a href="cart.html">Cart</a></li>
-                <li><a href="#enquiry">Enquiry</a></li>
-            </ul>
-        </nav>
+        <div class="nav-menu" id="navMenu">
+            <div class="hamburger" onclick="toggleMenu()">☰</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">Categories</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Grocery</a></li>
+                            <li><a href="#">Vegetables</a></li>
+                            <li><a href="#">Fruits</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="cart.html">Cart</a></li>
+                    <li><a href="#enquiry">Enquiry</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <main>
@@ -515,8 +565,7 @@
                     return false; 
                 }
             </script>
-        </section>
-    
+        </section>    
         <footer>
             <p>&copy; 2024 GreenMart. All rights reserved.</p>
         </footer>
@@ -527,11 +576,14 @@
             </div>
         </div>
         <script>
+            function toggleMenu() {
+            var navMenu = document.getElementById("navMenu");
+            navMenu.classList.toggle("active");
+        }
             function addToCart(productName) {
                 document.getElementById("modalText").textContent = productName + " has been added to your cart.";
                 document.getElementById("cartModal").style.display = "flex";
-            }
-    
+            }   
             function closeModal() {
                 document.getElementById("cartModal").style.display = "none";
             }
@@ -545,13 +597,13 @@
             document.addEventListener('DOMContentLoaded', function() {
         const categoryLink = document.querySelector('.dropdown > a');
         const dropdownMenu = document.querySelector('.dropdown-menu');
+        dropdownMenu.style.display = 'none';
 
         categoryLink.addEventListener('click', function(event) {
-            event.preventDefault(); // Prevent the default link behavior
+            event.preventDefault(); 
             dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
         });
 
-        // Optional: Close the dropdown if clicked outside
         document.addEventListener('click', function(event) {
             if (!categoryLink.contains(event.target) && !dropdownMenu.contains(event.target)) {
                 dropdownMenu.style.display = 'none';
