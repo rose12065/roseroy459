@@ -10,11 +10,16 @@
   }
   body {
     margin: 0;
+    padding-top: 50px; /* Adjust this value to the height of the navbar */
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
   }
   .topnav {
     overflow: hidden;
     background-color: #00d099;
+    position: fixed; /* Make the navbar fixed */
+    top: 0; /* Position it at the top */
+    width: 100%; /* Full width */
+    z-index: 1000; /* Ensure it stays on top of other elements */
   }
   .topnav a {
     float: left;
@@ -40,16 +45,16 @@
     float: right;
   }
   .footer {
-  position: relative;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: #00d099;
-  color: white;
-  text-align: center;
-  padding: 20px 0; /* Increase padding to add height */
-  line-height: 1.8rem; /* Adjust line-height if necessary */
-}
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #00d099;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    line-height: 1.8rem;
+  }
   @media screen and (max-width: 600px) {
     .topnav a:not(:first-child) {display: none;}
     .topnav a.icon {
@@ -228,7 +233,7 @@
   .contact-details h2, .quick-links h2, .social-media h2 {
     font-size: 1.8rem;
     margin-bottom: 15px;
-    color: #00d099;
+    color: #000000;
   }
 
   .contact-details p {
@@ -240,7 +245,7 @@
   .contact-form h2 {
     font-size: 1.8rem;
     margin-bottom: 15px;
-    color: #00d099;
+    color: #000000;
   }
 
   .contact-form form {
@@ -280,6 +285,7 @@
 
   .quick-links ul li {
     margin-bottom: 10px;
+    padding-left: 50px;
   }
 
   .quick-links ul li a {
@@ -287,6 +293,7 @@
     color: #00d099;
     font-size: 1rem;
     transition: color 0.3s ease;
+    
   }
 
   .quick-links ul li a:hover {
@@ -294,7 +301,7 @@
   }
 
   .social-media {
-    margin-top: 30px;
+    margin-top: 0;
   }
 
   .social-icons {
@@ -311,113 +318,105 @@
   .social-icons a:hover {
     color: #009d6f;
   }
-
 </style>
 </head>
 <body>
 
 <div class="topnav" id="myTopnav">
   <a href="#home" class="active">GreenMart</a>
-  <div class="right-nav">
-    <a href="login.html"><i class="fa fa-user-o" aria-hidden="true"></i> Login</a>
-    <a href="#services-section">Services</a>
-    <a href="#contact">Contact</a>
-  </div>
+  <a href="#services">Services</a>
+  <a href="#contact">Contact</a>
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
   </a>
+  <a href="login.html">Login</a>
 </div>
 
-<div id="home" class="body-bg">
+<div class="body-bg" id="home">
   <div class="banner">
     <div class="banner-content">
       <h1>Welcome to GreenMart</h1>
-      <p>Discover fresh, organic products just for you.</p>
-      <a href="#shop" class="shop-now-btn">Shop Now</a>
+      <p>Your one-stop shop for fresh, organic products</p>
+      <a href="#" class="shop-now-btn">Shop Now</a>
     </div>
   </div>
 </div>
 
-<section id="services-section" class="services-section">
+<div class="services-section" id="services">
   <div class="container">
     <div class="row">
       <div class="column">
         <i class="fas fa-shipping-fast"></i>
         <h2>Fast Delivery</h2>
-        <p>Get your products delivered at lightning speed with our fast and reliable delivery service.</p>
+        <p>Get your products delivered to your doorstep quickly and efficiently.</p>
       </div>
       <div class="column">
         <i class="fas fa-leaf"></i>
         <h2>Fresh Products</h2>
-        <p>We ensure the freshest and highest quality products are delivered right to your doorstep.</p>
+        <p>We provide the freshest products, sourced directly from farms.</p>
       </div>
       <div class="column">
-        <i class="fas fa-clock"></i>
+        <i class="fas fa-headset"></i>
         <h2>24x7 Service</h2>
-        <p>Our customer service team is available 24/7 to assist you with all your needs.</p>
+        <p>Our customer service is available around the clock to assist you.</p>
       </div>
     </div>
   </div>
-</section>
+</div>
 
-<section class="contact-page" id="contact">
+<div class="contact-page" id="contact">
   <div class="container">
     <div class="contact-content">
-      
       <div class="contact-details">
-        <h2>Company Address</h2>
-        <p>GreenMart Headquarters</p>
-        <p>123 Green Street,</p>
-        <p>Eco City, Earth 45678</p>
-        <p>Phone: +123 456 7890</p>
-        <p>Email: info@greenmart.com</p>
-      </div>
-      
-      <div class="contact-form">
         <h2>Contact Us</h2>
-        <form>
+        <p>GreenMart, 123 Green St.,Freshville,CA 90210</p>
+        <p>Email: info@greenmart.com</p>
+        <p>Phone: +1 (234) 567-890</p>
+      </div>
+      <div class="contact-form">
+        <h2>Send Us a Message</h2>
+        <form action="#">
           <input type="text" name="name" placeholder="Your Name" required>
           <input type="email" name="email" placeholder="Your Email" required>
           <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-          <input type="submit" value="Send Message">
+          <input type="submit" value="Submit">
         </form>
       </div>
-
       <div class="quick-links">
         <h2>Quick Links</h2>
         <ul>
           <li><a href="#home">Home</a></li>
-          <li><a href="#about-section">About</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#services">Services</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
-        
-        <div class="social-media">
-          <h2>Connect with Us</h2>
-          <div class="social-icons">
-            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-          </div>
+      </div>
+      <div class="social-media">
+        <h2>Follow Us</h2>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
         </div>
       </div>
-
     </div>
   </div>
-</section>
-<footer class="footer">
+</div>
+
+<div class="footer">
   <p>&copy; 2024 GreenMart. All rights reserved.</p>
-</footer>
+</div>
 
 <script>
-function myFunction() {
-  var x = document.getElementById("myTopnav");
-  if (x.className === "topnav") {
-    x.className += " responsive";
-  } else {
-    x.className = "topnav";
+  function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+      x.className += " responsive";
+    } else {
+      x.className = "topnav";
+    }
   }
-}
 </script>
 
 </body>
