@@ -153,7 +153,56 @@
             .login-container {
                 margin-top: 60px; 
             }
-        }        
+        } 
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1000; 
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .modal-content {
+            background-color: #f80202a3;
+            margin: 15% auto; 
+            padding: 20px;
+            border-radius: 8px;
+            width: 80%; 
+            max-width: 300px;
+        }
+
+        .modal-header {
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .modal-body {
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .modal-footer {
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }       
     </style>
 </head>
 <body>
@@ -185,18 +234,53 @@
             </p>
         </div>
     </div>
+    <div id="errorModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <!-- <h2>Error</h2> -->
+            </div>
+            <div class="modal-body">
+                <p id="modalMessage">Invalid username or password.</p>
+            </div>
+            <!-- <div class="modal-footer">
+                <button onclick="closeModal()">Close</button>
+            </div> -->
+        </div>
 
     <script>
-        function login() {
-            var username = document.getElementById('username').value;
-            var password = document.getElementById('password').value;
-            if (username && password) {
-                window.location.href = "shop.html";
-                return false; 
-            } else {
-                alert('Please enter both username and password.');
-                return false; 
+         function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (!username || !password) {
+                showModal('Please enter both username and password.');
+                return false;
             }
+
+            const storedUser = JSON.parse(localStorage.getItem('user'));
+
+            if (storedUser) {
+                if (username === storedUser.email && password === storedUser.password) {
+                    window.location.href = "shop.html"; 
+                    return false;
+                } else {
+                    showModal('Invalid username or password.');
+                    return false;
+                }
+            } else {
+                showModal('No user registered.');
+                return false;
+            }
+        }
+
+        function showModal(message) {
+            document.getElementById('modalMessage').textContent = message;
+            document.getElementById('errorModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('errorModal').style.display = 'none';
         }
     </script>
 </body>

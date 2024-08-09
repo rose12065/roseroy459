@@ -118,3 +118,22 @@ function validateForm() {
 
     return nameValid && emailValid && phoneValid && passwordValid && repeatPasswordValid;
 }
+
+document.getElementById('registerForm').addEventListener('submit', function (event) {
+    event.preventDefault();
+    if (!validateForm()) {
+        return;
+    }
+
+    const name = document.getElementById('uname').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const password = document.getElementById('pwd').value;
+
+    // Simulate storing user data
+    const user = { name, email, phone, password };
+    localStorage.setItem('user', JSON.stringify(user));
+
+    alert('Registration successful!');
+    window.location.href = 'login.html'; // Redirect to login page after successful registration
+});
