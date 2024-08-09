@@ -4,382 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GreenMart</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
-            line-height: 1.6;
-        }
-        header {
-            background-color: #00d099;
-            color: #fff;
-            padding: 10px 0;
-            text-align: center;
-            position: relative;
-        }
-
-        header h1 {
-            margin-bottom: 10px;
-        }
-
-        header nav ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        header nav ul li {
-            display: inline-block;
-            position: relative;
-            margin: 0 10px;
-        }
-
-        header nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            padding: 10px;
-            display: block;
-        }
-        
-
-        .dropdown-menu {
-            display: none; 
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 0;
-            min-width: 160px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            z-index: 1;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        .dropdown-menu li {
-            width: 100%;
-            padding: 10px;
-            box-sizing: border-box;
-            text-align: left;
-        }
-
-        .dropdown-menu li a {
-            color: #333;
-            text-decoration: none;
-            padding: 10px;
-            display: block;
-        }
-
-        .dropdown-menu li a:hover {
-            background-color: #f4f4f4;
-        }
-        main {
-            padding: 20px;
-        }
-
-        .product-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 20px;
-        }
-
-        .product {
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 10px;
-            text-align: center;
-            background-color: #fff;
-            height: 350px; 
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .product img {
-            max-width: 100%;
-            height: 150px; 
-            border-radius: 4px;
-            object-fit: cover;
-        }
-
-        .product h3 {
-            margin: 10px 0;
-            font-size: 16px;
-            color: #333;
-            height: 40px; 
-            overflow: hidden;
-        }
-
-        .product p {
-            color: #333;
-            margin: 5px 0;
-            font-size: 14px;
-        }
-
-        .product button {
-            background-color: #00d099;
-            border: none;
-            color: #fff;
-            padding: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            margin-top: auto; 
-        }
-
-        .product button:hover {
-            background-color: #009d6f;
-        }
-
-        .ad-section {
-            padding: 20px;
-            text-align: center;
-            background: url('images/slide-1.jpg') no-repeat center;
-            background-size: cover;
-            color: white;
-            height: 400px;
-            position: relative;
-        }
-
-        .ad-section h2 {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 36px;
-            font-weight: bold;
-            color: rgb(151, 151, 6);
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        }
-
-        .ad-section p {
-            position: absolute;
-            top: 60%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 18px;
-            width: 80%;
-            color: rgb(151, 151, 6);
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        }
-        #enquiry {
-            padding: 2rem;
-            background-color: #f9f9f9;
-        }
-
-        .enquiry-container {
-            background-color: #fff;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .enquiry-container h2 {
-            margin-bottom: 1.5rem;
-            font-size: 24px;
-            color: #333;
-        }
-
-        .form-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .form-group {
-            flex: 1;
-            min-width: 200px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: #333;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.5rem;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 16px;
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            height: 100px;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #007bff;
-        }
-
-        .error-message {
-            color: red;
-            font-size: 0.875rem;
-            margin-top: 0.5rem;
-            display: none;
-        }
-
-        button {
-            width: 100%;
-            padding: 0.75rem;
-            border: none;
-            border-radius: 4px;
-            background-color: #00d099;
-            color: #fff;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #078967;
-        }
-        footer {
-            background-color: #00d099;
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
-        }
-        @media (max-width: 768px) {
-            .header nav ul li {
-                display: block;
-                text-align: left;
-            }
-
-            .dropdown-menu {
-                width: 100%;
-            }
-
-            .form-row {
-                flex-direction: column;
-            }
-
-            .product-list {
-                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            }
-            
-        }
-
-        @media (max-width: 480px) {
-            .ad-section h2 {
-                font-size: 24px;
-            }
-
-            .ad-section p {
-                font-size: 14px;
-            }
-
-            .product-list {
-                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-            }
-
-            .product {
-                height: auto; 
-            }
-
-            .product img {
-                height: auto; 
-            }
-        }
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.4);
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            width: 300px;
-            text-align: center;
-        }
-
-        .modal-content p {
-            margin: 20px 0;
-        }
-
-        .close-btn {
-            background-color: #00d099;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        .close-btn:hover {
-            background-color: #009d6f;
-        }
-        .hamburger {
-            display: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: #fff;
-            margin-right: 20px;
-        }
-
-        /* Navbar styles for mobile */
-        .nav-menu {
-            display: flex;
-            align-items: center;
-        }
-
-        .nav-menu ul {
-            display: flex;
-            align-items: center;
-        }
-
-        /* Hide dropdown menu by default on mobile */
-        .dropdown-menu {
-            display: none;
-        }
-
-        /* Responsive styles */
-        @media (max-width: 768px) {
-            .nav-menu ul {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 60px;
-                left: 0;
-                background: #00d099;
-                width: 100%;
-                padding: 10px;
-                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-                z-index: 1;
-            }
-
-            .nav-menu.active ul {
-                display: flex;
-            }
-
-            .hamburger {
-                display: block;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="script/script.js"></script>
 </head>
 <body>
     <header>
@@ -388,7 +14,7 @@
             <div class="hamburger" onclick="toggleMenu()">☰</div>
             <nav>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Home</a></li>
                     <li class="dropdown">
                         <a href="#">Categories</a>
                         <ul class="dropdown-menu">
@@ -400,7 +26,7 @@
                     <li><a href="#products">Products</a></li>
                     <li><a href="cart.html">Cart</a></li>
                     <li><a href="#enquiry">Enquiry</a></li>
-                    <li><a href="#" onclick="logout()">Logout</a></li>
+                    <li><a href="index.html" onclick="logout()">Logout</a></li>
                 </ul>
             </nav>
             
@@ -456,20 +82,20 @@
                     <div class="form-row">
                         <div class="form-group">
                             <label for="name">Name</label>
-                            <input type="text" id="name" name="name" onkeyup="validateName()" required>
-                            <span class="error-message" id="name-error"></span>
+                            <input type="text" id="uname" name="name" onkeyup="validateName()" required>
+                            <span class="error-message" id="lblErrorName"></span>
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
                             <input type="email" id="email" name="email" onkeyup="validateEmail()" required>
-                            <span class="error-message" id="email-error"></span>
+                            <span class="error-message" id="lblErrorEmail"></span>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
                             <label for="phone">Phone Number</label>
                             <input type="tel" id="phone" name="phone" onkeyup="validatePhone()" required>
-                            <span class="error-message" id="phone-error"></span>
+                            <span class="error-message" id="lblErrorPhone"></span>
                         </div>
                         <div class="form-group">
                             <label for="message">Message</label>
@@ -480,93 +106,6 @@
                     <button type="submit" onclick="return validateEnquiryForm()">Submit</button>
                 </form>
             </div>
-    
-            <script>
-                function validateName() {
-                    var letters = /^[A-Za-z\s]+$/;
-                    const name = document.getElementById("name").value.trim();
-                    const nameError = document.getElementById("name-error");
-    
-                    if (name === "") {
-                        nameError.textContent = "Name is required.";
-                        nameError.style.display = "block";
-                        return false;
-                    } else {
-                        nameError.textContent = "";
-                        nameError.style.display = "none";
-                        return true;
-                    }
-                }
-    
-                function validateEmail() {
-                    const email = document.getElementById("email").value.trim();
-                    const emailError = document.getElementById("email-error");
-                    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    
-                    if (email === "") {
-                        emailError.textContent = "Email is required.";
-                        emailError.style.display = "block";
-                        return false;
-                    } else if (!emailPattern.test(email)) {
-                        emailError.textContent = "Invalid email address.";
-                        emailError.style.display = "block";
-                        return false;
-                    } else {
-                        emailError.textContent = "";
-                        emailError.style.display = "none";
-                        return true;
-                    }
-                }
-    
-                function validatePhone() {
-                    const phone = document.getElementById("phone").value.trim();
-                    const phoneError = document.getElementById("phone-error");
-                    const phonePattern = /^\d{10}$/;
-    
-                    if (phone === "") {
-                        phoneError.textContent = "Phone number is required.";
-                        phoneError.style.display = "block";
-                        return false;
-                    } else if (!phonePattern.test(phone)) {
-                        phoneError.textContent = "Invalid phone number. Must be 10 digits.";
-                        phoneError.style.display = "block";
-                        return false;
-                    } else {
-                        phoneError.textContent = "";
-                        phoneError.style.display = "none";
-                        return true;
-                    }
-                }
-    
-                function validateMessage() {
-                    const message = document.getElementById("message").value.trim();
-                    const messageError = document.getElementById("message-error");
-    
-                    if (message === "") {
-                        messageError.textContent = "Message is required.";
-                        messageError.style.display = "block";
-                        return false;
-                    } else {
-                        messageError.textContent = "";
-                        messageError.style.display = "none";
-                        return true;
-                    }
-                }
-    
-                function validateEnquiryForm() {
-                    const isNameValid = validateName();
-                    const isEmailValid = validateEmail();
-                    const isPhoneValid = validatePhone();
-                    const isMessageValid = validateMessage();
-    
-                    if (isNameValid && isEmailValid && isPhoneValid && isMessageValid) {
-                        window.location.href = "index.html"; 
-                        return true;
-                    }
-    
-                    return false; 
-                }
-            </script>
         </section>    
         <footer>
             <p>&copy; 2024 GreenMart. All rights reserved.</p>
@@ -577,46 +116,27 @@
                 <button class="close-btn" onclick="closeModal()">Close</button>
             </div>
         </div>
-        <script>
-            function toggleMenu() {
-            var navMenu = document.getElementById("navMenu");
-            navMenu.classList.toggle("active");
-        }
-            function addToCart(productName) {
-                document.getElementById("modalText").textContent = productName + " has been added to your cart.";
-                document.getElementById("cartModal").style.display = "flex";
-            }   
-            function closeModal() {
-                document.getElementById("cartModal").style.display = "none";
-            }
-    
-            window.onclick = function(event) {
-                const modal = document.getElementById("cartModal");
-                if (event.target == modal) {
-                    modal.style.display = "none";
+        <script>              
+            document.addEventListener("DOMContentLoaded", function () {
+              const categoryLink = document.querySelector(".dropdown > a");
+              const dropdownMenu = document.querySelector(".dropdown-menu");
+              dropdownMenu.style.display = "none";
+            
+              categoryLink.addEventListener("click", function (event) {
+                event.preventDefault();
+                dropdownMenu.style.display =
+                  dropdownMenu.style.display === "block" ? "none" : "block";
+              });
+            
+              document.addEventListener("click", function (event) {
+                if (
+                  !categoryLink.contains(event.target) &&
+                  !dropdownMenu.contains(event.target)
+                ) {
+                  dropdownMenu.style.display = "none";
                 }
-            }
-            document.addEventListener('DOMContentLoaded', function() {
-        const categoryLink = document.querySelector('.dropdown > a');
-        const dropdownMenu = document.querySelector('.dropdown-menu');
-        dropdownMenu.style.display = 'none';
-
-        categoryLink.addEventListener('click', function(event) {
-            event.preventDefault(); 
-            dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
-        });
-
-        document.addEventListener('click', function(event) {
-            if (!categoryLink.contains(event.target) && !dropdownMenu.contains(event.target)) {
-                dropdownMenu.style.display = 'none';
-            }
-        });
-    });
-    function logout() {
-        
-        window.location.href = "index.html";
-    }
-        </script>
-    </body>    
+              });
+            });
+                        </script>
     </body>
     </html>

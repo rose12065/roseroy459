@@ -1,109 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-<div class="topnav" id="myTopnav">
-  <a href="#home" class="active">GreenMart</a>
-  <a href="#services">Services</a>
-  <a href="#contact">Contact</a>
-  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-    <i class="fa fa-bars"></i>
-  </a>
-  <a href="login.html">Login</a>
-</div>
-
-<div class="body-bg" id="home">
-  <div class="banner">
-    <div class="banner-content">
-      <h1>Welcome to GreenMart</h1>
-      <p>Discover fresh, organic products just for you.</p>
-      <a href="#" class="shop-now-btn">Shop Now</a>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="topnav" id="myTopnav">
+      <a href="#home" class="active">GreenMart</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
+      <a href="login.html">Login</a>
     </div>
-  </div>
-</div>
 
-<div class="services-section" id="services">
-  <div class="container">
-    <div class="row">
-      <div class="column">
-        <i class="fas fa-shipping-fast"></i>
-        <h2>Fast Delivery</h2>
-        <p>Get your products delivered to your doorstep quickly and efficiently.</p>
-      </div>
-      <div class="column">
-        <i class="fas fa-leaf"></i>
-        <h2>Fresh Products</h2>
-        <p>We provide the freshest products, sourced directly from farms.</p>
-      </div>
-      <div class="column">
-        <i class="fas fa-headset"></i>
-        <h2>24x7 Service</h2>
-        <p>Our customer service is available around the clock to assist you.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="contact-page" id="contact">
-  <div class="container">
-    <div class="contact-content">
-      <div class="contact-details">
-        <h2>Contact Us</h2>
-        <p>GreenMart, 123 Green St.,Freshville,CA 90210</p>
-        <p>Email: info@greenmart.com</p>
-        <p>Phone: +1 (234) 567-890</p>
-      </div>
-      <div class="contact-form">
-        <h2>Send Us a Message</h2>
-        <form action="#">
-          <input type="text" name="name" placeholder="Your Name" required>
-          <input type="email" name="email" placeholder="Your Email" required>
-          <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-          <input type="submit" value="Submit">
-        </form>
-      </div>
-      <div class="quick-links">
-        <h2>Quick Links</h2>
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-      <div class="social-media">
-        <h2>Follow Us</h2>
-        <div class="social-icons">
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    <div class="body-bg" id="home">
+      <div class="banner">
+        <div class="banner-content">
+          <h1>Welcome to GreenMart</h1>
+          <p>Discover fresh, organic products just for you.</p>
+          <a href="#" class="shop-now-btn">Shop Now</a>
         </div>
       </div>
     </div>
-  </div>
-</div>
 
-<div class="footer">
-  <p>&copy; 2024 GreenMart. All rights reserved.</p>
-</div>
+    <div class="services-section" id="services">
+      <div class="container">
+        <div class="row">
+          <div class="column">
+            <i class="fas fa-shipping-fast"></i>
+            <h2>Fast Delivery</h2>
+            <p>
+              Get your products delivered to your doorstep quickly and
+              efficiently.
+            </p>
+          </div>
+          <div class="column">
+            <i class="fas fa-leaf"></i>
+            <h2>Fresh Products</h2>
+            <p>
+              We provide the freshest products, sourced directly from farms.
+            </p>
+          </div>
+          <div class="column">
+            <i class="fas fa-headset"></i>
+            <h2>24x7 Service</h2>
+            <p>
+              Our customer service is available around the clock to assist you.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-<script>
-  function myFunction() {
-    var x = document.getElementById("myTopnav");
-    if (x.className === "topnav") {
-      x.className += " responsive";
-    } else {
-      x.className = "topnav";
-    }
-  }
-</script>
+    <div class="contact-page" id="contact">
+      <div class="container">
+        <div class="contact-content">
+          <div class="contact-details">
+            <h2>Contact Us</h2>
+            <p>GreenMart, 123 Green St.,Freshville,CA 90210</p>
+            <p>Email: info@greenmart.com</p>
+            <p>Phone: +1 (234) 567-890</p>
+          </div>
+          <div class="contact-form">
+            <h2>Send Us a Message</h2>
+            <form action="#">
+              <input type="text" name="name" placeholder="Your Name" required />
+              <input
+                type="email"
+                name="email"
+                placeholder="Your Email"
+                required
+              />
+              <textarea
+                name="message"
+                rows="5"
+                placeholder="Your Message"
+                required
+              ></textarea>
+              <input type="submit" value="Submit" />
+            </form>
+          </div>
+          <div class="quick-links">
+            <h2>Quick Links</h2>
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="social-media">
+            <h2>Follow Us</h2>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-</body>
+    <div class="footer">
+      <p>&copy; 2024 GreenMart. All rights reserved.</p>
+    </div>
+    <script src="script/script.js"></script>
+  </body>
 </html>
